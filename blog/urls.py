@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from . import views
 
+app_name = 'blog'
+
 urlpatterns = [
     url(r'^$', views.all_blogs, name='all_blogs'),
+    url(r'^(?P<blog_id>\d+)/$', views.detail, name='detail'),  
 ]
