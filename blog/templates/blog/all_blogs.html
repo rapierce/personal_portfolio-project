@@ -1,13 +1,24 @@
-<h1>Pierce3 Blog</h1>
+ 
+{% extends "portfolio/base.html" %}
 
-<h2>Rich has written {{  blog_Projects.count }} Blog{{ blog_Projects.count|pluralize }}</h2>
+{% load static %}
+
+{% block content %}
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Pierce3 Blog</h1>
+
+<h3 class="text-center mb-5">Rich has written {{ blog_Projects.count }} Blog{{ blog_Projects.count|pluralize }}</h3>
 
 {% for blog_Project in blog_Projects %}
-
-<a href="{% url 'blog:detail' blog_Project.id %}"><h2>{{ blog_Project.title }}</h2></a>
-<h5>{{ blog_Project.date|date:'M d Y'|upper }}</h5>
-<p>{{ blog_Project.description|striptags|truncatechars:100 }}</p>
-<img src="{{ blog_Project.image.url }}">
-
-
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'blog:detail' blog_Project.id %}">
+      <h2>{{ blog_Project.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ blog_Project.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ blog_Project.description|striptags|truncatechars:100 }}</h4>
+  </div>
+</div>
 {% endfor %}
+
+{% endblock %}
