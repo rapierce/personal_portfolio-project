@@ -27,10 +27,11 @@
       <img src="{{ project.image.url }}" class="img-fluid mb-2">
     </a>
     {% else %}
-
-    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    <a href="{% url 'portfolio_Project_Detail' project.id %}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
     {% endif %}
-    <h3>{{ project.title }}</h3>
+    <h3>{{ project.title }}</h3></a>            
     <p>{{ project.description }}</p>
 
   </div>

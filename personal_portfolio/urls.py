@@ -19,9 +19,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from portfolio import views
 
+app_name = 'portfolio'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'^(?P<portfolio_Project_Id>\d+)/$', views.portfolio_Project_Detail, name='portfolio_Project_Detail'),
     url(r'^blog/', include('blog.urls')),
 ]
 
